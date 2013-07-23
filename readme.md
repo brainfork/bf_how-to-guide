@@ -1,4 +1,5 @@
-== BF How-to Guide ==
+=== BF How-to Guide ===
+
 Contributors: brainfork
 Donate link: http://labs.BRAINfork.net
 Tags: dashboard, wordpress, how-to, guide
