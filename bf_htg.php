@@ -31,7 +31,7 @@ if(!class_exists('BF_HTG')) {
 		 * Construct the plugin object
 		 */
 		public function __construct() {
-			add_action('admin_menu', array($this, 'admin_menu'));
+			add_action('admin_menu', array($this, 'htg_admin_menu'));
 		} // END public function __construct
 	    
 		/**
@@ -48,11 +48,11 @@ if(!class_exists('BF_HTG')) {
 			// Do nothing
 		} // END public static function deactivate
 		
-		function admin_menu() {
-			add_dashboard_page('WordPress How-to Guide', 'How-to Guide', 'publish_pages', 'bf_htg', array($this, 'admin_page_handler'));
+		function htg_admin_menu() {
+			add_dashboard_page('WordPress How-to Guide', 'How-to Guide', 'publish_pages', 'bf_htg', array($this, 'htg_admin_page_handler'));
     	}
 		
-		function admin_page_handler() {
+		function htg_admin_page_handler() {
 			echo '<div class="wrap bf_htg">';
 				echo '<header id="htg_head">';
 					echo '<div class="icon32 icon-tools"></div>';
