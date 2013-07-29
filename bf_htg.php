@@ -40,10 +40,10 @@ if(!class_exists('BF_HTG')) {
 		public static function activate() {
 			// Do nothing
 		} // END public static function activate
-	
+		
 		/**
 		 * Deactivate the plugin
-		 */		
+		 */	
 		public static function deactivate() {
 			// Do nothing
 		} // END public static function deactivate
@@ -55,43 +55,36 @@ if(!class_exists('BF_HTG')) {
 		function admin_page_handler() {
 			echo '<div class="wrap bf_htg">';
 				echo '<header id="htg_head">';
-					echo '<div class="icon32" id="icon-generic"><br></div>';
+					echo '<div class="icon32 icon-tools"></div>';
 					echo '<h2>WordPress How-to Guide</h2>';
 				echo '</header>';
-				
-				
-				
-				/*
-					render this using the jQuery .load() function?
-					http://stackoverflow.com/a/8153230
-					http://api.jquery.com/load/
-				*/
-				
-				
-				
 				echo '<div id="htg_content">';
 				
-					echo '<h3>Table of Contents</h3>';
-					
-					echo '<h4>Posts</h4>';
-					echo '<ul>';
-						echo '<li><a href="#">Create a Page</a></li>';
-					echo '</ul>';
-					
-					echo '<h4>Pages</h4>';
-					echo '<ul>';
-						echo '<li><a href="#">Create a Post</a></li>';
-					echo '</ul>';
+				$page = $_GET["topic"];
+				
+				if (isset($page)) {
+					$file = dirname(__FILE__) . '/pages/' . $page . '.php';
+				} else {
+					$file = dirname(__FILE__) . '/pages/index.php';
+				}
+				
+				require_once $file;		
 				
 				echo '</div>';
-
 			echo '</div>';
 		}
-		
+	
 	} // END class BF_HTG
 } // END if(!class_exists('BF_HTG'))
 
 if(class_exists('BF_HTG')) {
+	// load plugin functions
+	require_once dirname( __FILE__ ) . '/functions.php';
+	
+	// load plugin styles
+	wp_register_style('htg_style', plugins_url('style.css', __FILE__));
+	wp_enqueue_style('htg_style');
+	
 	// Installation and uninstallation hooks
 	register_activation_hook(__FILE__, array('BF_HTG', 'activate'));
 	register_deactivation_hook(__FILE__, array('BF_HTG', 'deactivate'));

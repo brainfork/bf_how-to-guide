@@ -1,0 +1,39 @@
+#htg_head h2 {
+	font-size: 32px;
+	margin: 0 0 10px;
+}
+
+#htg_breadcrumb li {
+	display:inline;
+}
+
+#htg_breadcrumb li a {
+	text-transform:capitalize;
+}
+
+#htg_breadcrumb span {
+	padding:0 5px;
+}
+
+#htg_index li {
+	margin-bottom:20px;
+	
+}
+
+#htg_index .icon-contact img {
+	width:16px;
+	height:16px;
+}
+
+#htg_index h3 {
+	margin-bottom:6px;
+}
+
+#htg_index ul {
+	list-style:disc outside none;
+	margin-left:24px;
+}
+
+#htg_index ul li {
+	margin-bottom:6px;
+}
